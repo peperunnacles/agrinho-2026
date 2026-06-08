@@ -1,1 +1,209 @@
+/* ==========================================
+   CONFIGURAÇÕES GLOBAIS E VARIÁVEIS
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth; /* Garante o scroll suave nativo */
+}
 
+:root {
+    --verde-escuro: #1b4d3e;
+    --verde-principal: #2e7d32;
+    --verde-claro: #a5d6a7;
+    --cor-fundo: #f4f7f5;
+    --cor-texto: #333333;
+    --branco: #ffffff;
+    --transicao: all 0.3s ease;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* ==========================================
+   HEADER E NAVEGAÇÃO
+   ========================================== */
+header {
+    background-color: var(--branco);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo h1 {
+    color: var(--verde-escuro);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-weight: 600;
+    transition: var(--transicao);
+    position: relative;
+    padding-bottom: 5px;
+}
+
+/* Efeito de linha passando por baixo do menu */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--verde-principal);
+    transition: var(--transicao);
+}
+
+nav ul li a:hover {
+    color: var(--verde-principal);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* ==========================================
+   ESTILIZAÇÃO DO CONTEÚDO PRINCIPAL (MAIN)
+   ========================================== */
+main {
+    margin-top: 70px; /* Evita que o header fixo cubra o conteúdo */
+}
+
+section {
+    padding: 5rem 10%;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Estilização para o efeito de surgimento com JavaScript */
+.hidden-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.show-section {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Títulos das Seções */
+section h2 {
+    font-size: 2.5rem;
+    color: var(--verde-escuro);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--verde-principal);
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+}
+
+section p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    color: #555;
+}
+
+/* Seção Hero (Início) */
+.hero-section {
+    background: linear-gradient(rgba(27, 77, 62, 0.75), rgba(46, 125, 50, 0.75)), 
+                url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover;
+    color: var(--branco);
+    min-height: 85vh;
+}
+
+.hero-section h2 {
+    color: var(--branco);
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-section h2::after {
+    background-color: var(--verde-claro);
+}
+
+.hero-section p {
+    color: #e0f2f1;
+    font-size: 1.4rem;
+}
+
+/* Seções Alternadas (Efeito Visual Fundo Branco / Fundo Cinza Claro) */
+#producao {
+    background-color: var(--branco);
+}
+
+#sustentabilidade {
+    background-color: var(--cor-fundo);
+}
+
+/* ==========================================
+   RODAPÉ (FOOTER)
+   ========================================== */
+footer {
+    background-color: var(--verde-escuro);
+    color: var(--branco);
+    text-align: center;
+    padding: 2rem;
+    font-size: 1rem;
+}
+
+/* ==========================================
+   RESPONSIVIDADE (MOBILE)
+   ========================================== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-section h2 {
+        font-size: 2.2rem;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    section p {
+        font-size: 1rem;
+    }
+}
