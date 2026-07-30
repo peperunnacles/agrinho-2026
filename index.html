@@ -1,50 +1,1146 @@
-HTML
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho 2026 - Agro Forte, Futuro Sustentável</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Agrinho - Agro forte, futuro sustentável. Descubra como a agricultura sustentável constrói um futuro melhor.">
+    <meta name="keywords" content="Agrinho, agricultura sustentável, meio ambiente, agro, futuro">
+    <title>Agrinho | Agro Forte, Futuro Sustentável</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============ VARIÁVEIS GLOBAIS ============ */
+        :root {
+            --verde-escuro: #1b4332;
+            --verde-medio: #2d6a4f;
+            --verde-claro: #52b788;
+            --verde-suave: #b7e4c7;
+            --amarelo: #f9c74f;
+            --marrom: #6b4423;
+            --creme: #fefae0;
+            --branco: #ffffff;
+            --texto: #1a1a1a;
+            --sombra: 0 10px 30px rgba(0,0,0,0.1);
+            --sombra-forte: 0 20px 60px rgba(0,0,0,0.15);
+            --transicao: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--texto);
+            background: var(--creme);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ============ HEADER / NAVEGAÇÃO ============ */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--sombra);
+            z-index: 1000;
+            transition: var(--transicao);
+        }
+
+        nav {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--verde-escuro);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--verde-claro), var(--verde-medio));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--verde-escuro);
+            font-weight: 600;
+            position: relative;
+            transition: var(--transicao);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--verde-claro);
+            transition: var(--transicao);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--verde-escuro);
+            cursor: pointer;
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--verde-escuro) 0%, var(--verde-medio) 50%, var(--verde-claro) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 2rem 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(249, 199, 79, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(183, 228, 199, 0.3) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            text-shadow: 2px 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 span {
+            color: var(--amarelo);
+            display: block;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--amarelo);
+            color: var(--verde-escuro);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transicao);
+            box-shadow: 0 10px 30px rgba(249, 199, 79, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(249, 199, 79, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--verde-escuro);
+        }
+
+        /* Folhas animadas */
+        .leaf {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.3;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+
+        /* ============ SEÇÕES GERAIS ============ */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            color: var(--verde-escuro);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--verde-medio);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ============ SOBRE ============ */
+        .sobre {
+            background: white;
+        }
+
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .sobre-texto h3 {
+            color: var(--verde-escuro);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .sobre-texto p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .sobre-imagem {
+            background: linear-gradient(135deg, var(--verde-claro), var(--verde-medio));
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            color: white;
+            box-shadow: var(--sombra-forte);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sobre-imagem::before {
+            content: '🌾';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.15;
+            top: -20px;
+            right: -20px;
+        }
+
+        .sobre-imagem h4 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .sobre-imagem p {
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        /* ============ PILARES ============ */
+        .pilares {
+            background: var(--creme);
+        }
+
+        .pilares-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .pilar-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--sombra);
+            transition: var(--transicao);
+            border-top: 5px solid var(--verde-claro);
+            cursor: pointer;
+        }
+
+        .pilar-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra-forte);
+            border-top-color: var(--amarelo);
+        }
+
+        .pilar-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            transition: var(--transicao);
+        }
+
+        .pilar-card:hover .pilar-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .pilar-card h3 {
+            color: var(--verde-escuro);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .pilar-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* ============ ESTATÍSTICAS ============ */
+        .estatisticas {
+            background: linear-gradient(135deg, var(--verde-escuro), var(--verde-medio));
+            color: white;
+        }
+
+        .estatisticas .section-title {
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transicao);
+        }
+
+        .stat-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--amarelo);
+            display: block;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ============ SOLUÇÕES ============ */
+        .solucoes {
+            background: white;
+        }
+
+        .solucoes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .solucao-card {
+            background: linear-gradient(135deg, var(--verde-suave), white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: var(--transicao);
+        }
+
+        .solucao-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--sombra-forte);
+        }
+
+        .solucao-header {
+            background: var(--verde-medio);
+            color: white;
+            padding: 1.5rem;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .solucao-body {
+            padding: 2rem;
+        }
+
+        .solucao-body h3 {
+            color: var(--verde-escuro);
+            margin-bottom: 1rem;
+        }
+
+        .solucao-body ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .solucao-body li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #555;
+        }
+
+        .solucao-body li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--verde-claro);
+            font-weight: bold;
+        }
+
+        /* ============ CALCULADORA ============ */
+        .calculadora {
+            background: var(--creme);
+        }
+
+        .calc-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--sombra-forte);
+        }
+
+        .calc-question {
+            margin-bottom: 2rem;
+        }
+
+        .calc-question label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--verde-escuro);
+        }
+
+        .calc-question input,
+        .calc-question select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--verde-suave);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: var(--transicao);
+        }
+
+        .calc-question input:focus,
+        .calc-question select:focus {
+            outline: none;
+            border-color: var(--verde-claro);
+        }
+
+        .calc-result {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--verde-claro), var(--verde-medio));
+            color: white;
+            border-radius: 15px;
+            text-align: center;
+            display: none;
+        }
+
+        .calc-result.show {
+            display: block;
+            animation: fadeInUp 0.5s;
+        }
+
+        .calc-result h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .calc-result .big-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--amarelo);
+            margin: 1rem 0;
+        }
+
+        /* ============ DICAS ============ */
+        .dicas {
+            background: white;
+        }
+
+        .dicas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .dica-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--creme);
+            border-radius: 15px;
+            transition: var(--transicao);
+            border-left: 4px solid var(--verde-claro);
+        }
+
+        .dica-item:hover {
+            transform: translateX(10px);
+            background: var(--verde-suave);
+        }
+
+        .dica-num {
+            background: var(--verde-medio);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .dica-content h4 {
+            color: var(--verde-escuro);
+            margin-bottom: 0.3rem;
+        }
+
+        .dica-content p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* ============ CTA ============ */
+        .cta {
+            background: linear-gradient(135deg, var(--amarelo), #f9844a);
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--verde-escuro);
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            color: var(--verde-escuro);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta .btn {
+            background: var(--verde-escuro);
+            color: white;
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background: var(--verde-escuro);
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--amarelo);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-col p, .footer-col a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: var(--transicao);
+        }
+
+        .footer-col a:hover {
+            color: var(--amarelo);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* ============ BOTÃO VOLTAR AO TOPO ============ */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--verde-medio);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--sombra);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transicao);
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--verde-escuro);
+            transform: translateY(-5px);
+        }
+
+        /* ============ RESPONSIVIDADE ============ */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: var(--sombra);
+                transform: translateY(-150%);
+                transition: var(--transicao);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .sobre-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .calc-container {
+                padding: 1.5rem;
+            }
+        }
+
+        /* ============ ANIMAÇÕES AO SCROLL ============ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
 
+    <!-- ============ HEADER ============ -->
     <header>
-        <div class="logo">
-            <h1>Agrinho 2026</h1>
-        </div>
         <nav>
-            <ul>
+            <div class="logo">
+                <span class="logo-icon">🌱</span>
+                Agrinho
+            </div>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#inicio">Início</a></li>
-                <li><a href="#producao">Produção Agrícola</a></li>
-                <li><a href="#sustentabilidade">Meio Ambiente</a></li>
-                <li><a href="#sobre">Sobre o Projeto</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#pilares">Pilares</a></li>
+                <li><a href="#solucoes">Soluções</a></li>
+                <li><a href="#calculadora">Calculadora</a></li>
+                <li><a href="#dicas">Dicas</a></li>
             </ul>
+            <button class="menu-toggle" id="menuToggle">☰</button>
         </nav>
     </header>
 
-    <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio">
+        <div class="leaf" style="left: 10%; animation-delay: 0s;">🍃</div>
+        <div class="leaf" style="left: 30%; animation-delay: 3s;">🌿</div>
+        <div class="leaf" style="left: 60%; animation-delay: 6s;">🍃</div>
+        <div class="leaf" style="left: 85%; animation-delay: 9s;">🌿</div>
         
-        <section id="inicio" class="hero-section">
-            <h2>Agro Forte, Futuro Sustentável</h2>
-            <p>O equilíbrio perfeito entre a produtividade no campo e a preservação do meio ambiente.</p>
-        </section>
+        <div class="hero-content">
+            <h1>Agro Forte<span>Futuro Sustentável</span></h1>
+            <p>Construindo um amanhã onde o campo e a natureza caminham juntos. Descubra como a agricultura sustentável transforma vidas, preserva o planeta e garante alimento para as próximas gerações.</p>
+            <a href="#sobre" class="btn">Conheça o Projeto</a>
+            <a href="#calculadora" class="btn btn-outline">Calcule sua Pegada</a>
+        </div>
+    </section>
 
-        <section id="producao">
-            <h2>Força da Produção</h2>
-            <p>Aqui você vai falar sobre a tecnologia no campo, a segurança alimentar e como a agricultura move a economia.</p>
-        </section>
+    <!-- ============ SOBRE ============ -->
+    <section class="sobre" id="sobre">
+        <div class="container">
+            <h2 class="section-title fade-in">O Programa Agrinho</h2>
+            <p class="section-subtitle fade-in">Uma das maiores iniciativas de responsabilidade social do sistema FAEP, presente em mais de 500 municípios do Paraná.</p>
+            
+            <div class="sobre-grid">
+                <div class="sobre-texto fade-in">
+                    <h3>Educação que transforma o campo</h3>
+                    <p>O Agrinho leva às escolas públicas temas essenciais como saúde, segurança pessoal, relações humanas, meio ambiente e práticas sustentáveis no campo.</p>
+                    <p>Através de concursos de desenho e redação, o programa estimula crianças e jovens a pensarem criticamente sobre o papel da agricultura no futuro do planeta.</p>
+                    <p>Neste site, você encontrará conteúdos, soluções inovadoras e ferramentas interativas para entender como o <strong>agro forte</strong> pode ser sinônimo de <strong>futuro sustentável</strong>.</p>
+                </div>
+                <div class="sobre-imagem fade-in">
+                    <h4>🌍 Nosso Compromisso</h4>
+                    <p>Com a terra, com as pessoas e com as gerações futuras. A agricultura sustentável é o caminho para um mundo mais justo, saudável e próspero.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section id="sustentabilidade">
-            <h2>Equilíbrio Ambiental</h2>
-            <p>Espaço reservado para as práticas sustentáveis: rotação de culturas, energia limpa, preservação de nascentes e redução de carbono.</p>
-        </section>
+    <!-- ============ PILARES ============ -->
+    <section class="pilares" id="pilares">
+        <div class="container">
+            <h2 class="section-title fade-in">Os 4 Pilares do Agro Sustentável</h2>
+            <p class="section-subtitle fade-in">Princípios que guiam uma agricultura forte, ética e comprometida com o futuro.</p>
+            
+            <div class="pilares-grid">
+                <div class="pilar-card fade-in">
+                    <div class="pilar-icon">🌱</div>
+                    <h3>Preservação Ambiental</h3>
+                    <p>Uso consciente dos recursos naturais, proteção de nascentes, matas ciliares e biodiversidade em cada hectare cultivado.</p>
+                </div>
+                <div class="pilar-card fade-in">
+                    <div class="pilar-icon">💧</div>
+                    <h3>Gestão da Água</h3>
+                    <p>Técnicas de irrigação inteligente, captação de água da chuva e reuso que garantem água para todos.</p>
+                </div>
+                <div class="pilar-card fade-in">
+                    <div class="pilar-icon">🌾</div>
+                    <h3>Produção Responsável</h3>
+                    <p>Agricultura de precisão, rotação de culturas e manejo integrado que aumentam a produtividade sem agredir o solo.</p>
+                </div>
+                <div class="pilar-card fade-in">
+                    <div class="pilar-icon">👨‍🌾</div>
+                    <h3>Valorização Humana</h3>
+                    <p>Respeito ao trabalhador rural, inclusão de jovens e mulheres no campo e fortalecimento da agricultura familiar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </main>
+    <!-- ============ ESTATÍSTICAS ============ -->
+    <section class="estatisticas">
+        <div class="container">
+            <h2 class="section-title fade-in">O Impacto da Agricultura Sustentável</h2>
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <span class="stat-number" data-target="30">0</span>
+                    <span class="stat-label">% de redução no uso de agrotóxicos</span>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number" data-target="50">0</span>
+                    <span class="stat-label">% de economia de água com técnicas sustentáveis</span>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number" data-target="70">0</span>
+                    <span class="stat-label">% de aumento na biodiversidade do solo</span>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number" data-target="100">0</span>
+                    <span class="stat-label">% de compromisso com o futuro</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- ============ SOLUÇÕES ============ -->
+    <section class="solucoes" id="solucoes">
+        <div class="container">
+            <h2 class="section-title fade-in">Soluções Inovadoras</h2>
+            <p class="section-subtitle fade-in">Tecnologias e práticas que estão revolucionando o campo brasileiro.</p>
+            
+            <div class="solucoes-grid">
+                <div class="solucao-card fade-in">
+                    <div class="solucao-header">🌻</div>
+                    <div class="solucao-body">
+                        <h3>Agricultura Orgânica</h3>
+                        <p>Produção livre de agrotóxicos e fertilizantes químicos, respeitando os ciclos naturais.</p>
+                        <ul>
+                            <li>Adubação verde e compostagem</li>
+                            <li>Controle biológico de pragas</li>
+                            <li>Rotação e consórcio de culturas</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="solucao-card fade-in">
+                    <div class="solucao-header">🚜</div>
+                    <div class="solucao-body">
+                        <h3>Agricultura de Precisão</h3>
+                        <p>Uso de drones, sensores e GPS para otimizar recursos e aumentar a eficiência produtiva.</p>
+                        <ul>
+                            <li>Monitoramento via satélite</li>
+                            <li>Irrigação automatizada</li>
+                            <li>Análise de solo em tempo real</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="solucao-card fade-in">
+                    <div class="solucao-header">☀️</div>
+                    <div class="solucao-body">
+                        <h3>Energia Renovável no Campo</h3>
+                        <p>Painéis solares, biodigestores e biomassa transformando o campo em fonte de energia limpa.</p>
+                        <ul>
+                            <li>Energia solar fotovoltaica</li>
+                            <li>Biodigestores de dejetos</li>
+                            <li>Redução da pegada de carbono</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CALCULADORA ============ -->
+    <section class="calculadora" id="calculadora">
+        <div class="container">
+            <h2 class="section-title fade-in">🌍 Calcule sua Pegada Verde</h2>
+            <p class="section-subtitle fade-in">Descubra o quanto você contribui para um planeta mais sustentável!</p>
+            
+            <div class="calc-container fade-in">
+                <div class="calc-question">
+                    <label for="plantas">Quantas plantas ou árvores você cuida/planta por ano?</label>
+                    <input type="number" id="plantas" min="0" value="0">
+                </div>
+                <div class="calc-question">
+                    <label for="agua">Quantos litros de água você economiza por dia? (em média)</label>
+                    <input type="number" id="agua" min="0" value="0">
+                </div>
+                <div class="calc-question">
+                    <label for="recicla">Você recicla em casa?</label>
+                    <select id="recicla">
+                        <option value="0">Não</option>
+                        <option value="1">Às vezes</option>
+                        <option value="2">Sempre</option>
+                    </select>
+                </div>
+                <div class="calc-question">
+                    <label for="consumo">Você consome produtos orgânicos ou da agricultura familiar?</label>
+                    <select id="consumo">
+                        <option value="0">Nunca</option>
+                        <option value="1">Às vezes</option>
+                        <option value="2">Frequentemente</option>
+                    </select>
+                </div>
+                
+                <button class="btn" onclick="calcularPegada()">Calcular Minha Pegada 🌱</button>
+                
+                <div class="calc-result" id="resultado">
+                    <h3>Sua Pontuação Verde:</h3>
+                    <div class="big-number" id="pontuacao">0</div>
+                    <p id="mensagem"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ DICAS ============ -->
+    <section class="dicas" id="dicas">
+        <div class="container">
+            <h2 class="section-title fade-in">Dicas para um Futuro Sustentável</h2>
+            <p class="section-subtitle fade-in">Pequenas atitudes que fazem uma grande diferença no planeta.</p>
+            
+            <div class="dicas-grid">
+                <div class="dica-item fade-in">
+                    <div class="dica-num">1</div>
+                    <div class="dica-content">
+                        <h4>Reduza o desperdício de alimentos</h4>
+                        <p>Planeje suas refeições e aproveite integralmente os alimentos.</p>
+                    </div>
+                </div>
+                <div class="dica-item fade-in">
+                    <div class="dica-num">2</div>
+                    <div class="dica-content">
+                        <h4>Plante uma árvore</h4>
+                        <p>Cada árvore absorve cerca de 1 tonelada de CO₂ durante sua vida.</p>
+                    </div>
+                </div>
+                <div class="dica-item fade-in">
+                    <div class="dica-num">3</div>
+                    <div class="dica-content">
+                        <h4>Economize água</h4>
+                        <p>Feche a torneira ao escovar os dentes e tome banhos mais rápidos.</p>
+                    </div>
+                </div>
+                <div class="dica-item fade-in">
+                    <div class="dica-num">4</div>
+                    <div class="dica-content">
+                        <h4>Consuma produtos locais</h4>
+                        <p>Apoie a agricultura familiar e reduza a emissão de carbono do transporte.</p>
+                    </div>
+                </div>
+                <div class="dica-item fade-in">
+                    <div class="dica-num">5</div>
+                    <div class="dica-content">
+                        <h4>Recicle sempre</h4>
+                        <p>Separe o lixo e dê destino correto aos materiais recicláveis.</p>
+                    </div>
+                </div>
+                <div class="dica-item fade-in">
+                    <div class="dica-num">6</div>
+                    <div class="dica-content">
+                        <h4>Composte em casa</h4>
+                        <p>Transforme resíduos orgânicos em adubo rico para plantas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta">
+        <div class="container">
+            <h2>Faça parte dessa transformação!</h2>
+            <p>O futuro sustentável começa com cada um de nós. Junte-se ao movimento que está mudando o campo e o planeta.</p>
+            <a href="#inicio" class="btn">Comece Agora 🌱</a>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
     <footer>
-        <p>&copy; 2026 Agrinho - Desenvolvido para o Futuro da Agricultura Sustentável.</p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>🌱 Agrinho</h4>
+                <p>Agro forte, futuro sustentável. Um projeto educativo que transforma a relação entre o campo, as pessoas e o meio ambiente.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <a href="#inicio">Início</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#pilares">Pilares</a>
+                <a href="#solucoes">Soluções</a>
+                <a href="#calculadora">Calculadora</a>
+            </div>
+            <div class="footer-col">
+                <h4>Conteúdo</h4>
+                <a href="sobre.html">Sobre o Agrinho</a>
+                <a href="solucoes.html">Soluções Sustentáveis</a>
+                <a href="quiz.html">Quiz Interativo</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <p>📧 contato@agrinho.com.br</p>
+                <p>📍 Paraná, Brasil</p>
+                <p>🌐 www.agrinho.org.br</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Projeto Agrinho | Desenvolvido com 💚 para um futuro sustentável</p>
+        </div>
     </footer>
 
+    <!-- Botão voltar ao topo -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
+
+    <!-- ============ JAVASCRIPT ============ -->
+    <script>
+        // Menu mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Botão voltar ao topo
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // Animação ao scroll (fade-in)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Contador animado das estatísticas
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = +entry.target.getAttribute('data-target');
+                    let current = 0;
+                    const increment = target / 50;
+                    const updateCount = () => {
+                        if (current < target) {
+                            current += increment;
+                            entry.target.innerText = Math.ceil(current);
+                            setTimeout(updateCount, 30);
+                        } else {
+                            entry.target.innerText = target;
+                        }
+                    };
+                    updateCount();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statNumbers.forEach(num => statsObserver.observe(num));
+
+        // Calculadora de pegada verde
+        function calcularPegada() {
+            const plantas = +document.getElementById('plantas').value || 0;
+            const agua = +document.getElementById('agua').value || 0;
+            const recicla = +document.getElementById('recicla').value;
+            const consumo = +document.getElementById('consumo').value;
+
+            let pontuacao = (plantas * 5) + (agua * 0.5) + (recicla * 20) + (consumo * 25);
+            pontuacao = Math.round(pontuacao);
+
+            let mensagem = '';
+            if (pontuacao < 30) {
+                mensagem = '🌱 Você está começando! Pequenas mudanças já fazem diferença. Continue aprendendo sobre sustentabilidade.';
+            } else if (pontuacao < 70) {
+                mensagem = '🌿 Muito bom! Você já contribui para um planeta mais verde. Continue evoluindo suas práticas sustentáveis!';
+            } else if (pontuacao < 120) {
+                mensagem = '🌳 Excelente! Você é um verdadeiro guardião do meio ambiente. Inspire outras pessoas com suas atitudes!';
+            } else {
+                mensagem = '🏆 Incrível! Você é um exemplo de sustentabilidade! O planeta agradece suas atitudes conscientes.';
+            }
+
+            document.getElementById('pontuacao').innerText = pontuacao;
+            document.getElementById('mensagem').innerText = mensagem;
+            document.getElementById('resultado').classList.add('show');
+        }
+
+        // Efeito parallax suave no hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const hero = document.querySelector('.hero-content');
+            if (hero && scrolled < 800) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+                hero.style.opacity = 1 - (scrolled / 800);
+            }
+        });
+    </script>
 </body>
 </html>
